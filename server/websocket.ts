@@ -1,3 +1,4 @@
+import fs from "fs";
 import getConfig from "./lib/getConfig";
 const { io } = require("socket.io-client");
 const logger = require("./lib/logger");
@@ -25,8 +26,8 @@ const initializeWebsocket = () => {
     logger.info("[Websocket] Connected to the server");
 
     socket.emit("register-device", {
-      // @TODO Check if this file exist at startup, else, throw fatal error
-      moduleId: require("../state/module.json").moduleId,
+      moduleId: JSON.parse(fs.readFileSync("./state/module.json").toString())
+        .moduleId,
       version: require("../package.json").version,
     });
 
