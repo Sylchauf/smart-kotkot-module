@@ -1,5 +1,5 @@
 const { temperatureInstance } = require("./modules/temperature");
-const getConfig = require("./lib/getConfig");
+import getConfig from "./lib/getConfig";
 const moment = require("moment");
 const fs = require("fs");
 const logger = require("./lib/logger");

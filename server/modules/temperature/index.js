@@ -1,7 +1,7 @@
 let temperatureInstance;
 
 const TEMPerHUM = require("./TEMPerHUM");
-const getConfig = require("../../lib/getConfig");
+import getConfig from "../../lib/getConfig";
 
 const config = getConfig();
 

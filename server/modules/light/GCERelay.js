@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
 const LightAbstract = require("./LightAbstract");
-const getConfig = require("../../lib/getConfig");
+import getConfig from "../../lib/getConfig";
 const config = getConfig();
 
 class GCERelay extends LightAbstract {

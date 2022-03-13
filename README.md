@@ -1,20 +1,4 @@
-# Smart KotKot
-
-## Presentation
-
-Smart KotKot: The connected and opensource coop.
-
-![Smart KotKot](public/screen.png)
-
-## Hardware compatibility
-
-- Any linux server with at least 512Mb RAM (x64, x86, ARM) like Raspberry PI (2,3,4,Zero)
-- Camera: Usb Webcam or Raspberry PI Cam
-- Light: anyone controlled by GPIO or [USB GCERelay](https://www.gce-electronics.com/en/-usb/247-126-controller-usb-8-relay-board.html#/29-boitier-without_box)
-- Door/Motor : anyone controlled by GPIO or [USB GCERelay](https://www.gce-electronics.com/en/-usb/247-126-controller-usb-8-relay-board.html#/29-boitier-without_box)
-- Temperature sensor: TEMPerHUM
-
-💡 _Smart KotKot_ is **modular** and it's **easy to add new compatibility devices**. Check the directory `/server/modules` to create your own driver and/or ask help in a new issue.
+# Smart KotKot Module
 
 ## Installation
 
@@ -37,7 +21,7 @@ Then, install the following requirements.
 docker-compose up
 ```
 
-Your instance is now live at `http://YOUR_LOCAL_IP:3000`
+Your module is now live at `http://YOUR_LOCAL_IP:3000`
 
 ## Configuration
 
@@ -107,12 +91,6 @@ Replace `{CAMERA_ID}` by the id given in the camera list endpoint
 
 - `GET` `/api/light/status` Get the state of the light
 
-### Eggs
-
-- `GET` `/api/eggs/list` List all picked eggs since a date. Use the params `since` to indicate the date in IsoString
-- `POST` `/api/eggs/add` Pick up eggs. Payload example: `{ date: '2022-08-01T08:00:00.000Z', number: 2 }`
-- `POST` `/api/eggs/delete` Delete a line in list. Payload example: `{ id: 18 }`
-
 ## Troubleshooting
 
 ### Give USB access to get data from TEMPerHUM
@@ -124,14 +102,8 @@ udevadm control --reload-rules
 
 ## Developers
 
-### Libraries used
-
-- Next.JS v11
-- React.JS v17
-- Material-ui v5
-
 ### Rebuild and push the image
 
 ```bash
-docker buildx build --platform linux/arm/v6,linux/arm/v7,linux/amd64,linux/arm64 -t sylchauf/smart-kotkot:latest --push .
+docker buildx build --platform linux/arm/v6,linux/arm/v7,linux/amd64,linux/arm64 -t sylchauf/smart-kotkot-module:latest --push .
 ```

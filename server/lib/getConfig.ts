@@ -11,4 +11,4 @@ const getConfig = () => {
   }
 };
 
-module.exports = getConfig;
+export default getConfig;

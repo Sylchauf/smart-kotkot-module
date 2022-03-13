@@ -2,7 +2,7 @@ const CronJob = require("cron").CronJob;
 const configStringToTime = require("./lib/configStringToTime");
 const axios = require("axios");
 const logger = require("./lib/logger");
-const getConfig = require("./lib/getConfig");
+import getConfig from "./lib/getConfig";
 
 const config = getConfig();
 
@@ -107,8 +107,10 @@ const setupCronjobs = () => {
           if (newJob.action === "open") axiosInstance.get("/api/door/up");
           else if (newJob.action === "close")
             axiosInstance.get("/api/door/down");
-          else if (newJob.action === "light_on") axiosInstance.get("/api/light/on");
-          else if (newJob.action === "light_off") axiosInstance.get("/api/light/off");
+          else if (newJob.action === "light_on")
+            axiosInstance.get("/api/light/on");
+          else if (newJob.action === "light_off")
+            axiosInstance.get("/api/light/off");
         },
         null,
         true

@@ -1,4 +1,4 @@
-const getConfig = require("./lib/getConfig");
+import getConfig from "./lib/getConfig";
 const { io } = require("socket.io-client");
 const logger = require("./lib/logger");
 const axios = require("axios");
@@ -11,7 +11,7 @@ const initializeWebsocket = () => {
 
   const config = getConfig();
 
-  const socket = io(config.server_url || "ws://localhost:3287");
+  const socket = io(config.server_url || "ws://app.smartkotkot.net");
 
   socket.on("disconnect", (reason) => {
     logger.error(`[Websocket] Disconnected ...${reason}`);
@@ -21,7 +21,7 @@ const initializeWebsocket = () => {
     logger.info("[Websocket] Connected to the server");
 
     socket.emit("register-device", {
-      moduleId: config.moduleId,
+      moduleId: require("../state/module.json").moduleId,
       version: require("../package.json").version,
     });
 
@@ -31,7 +31,14 @@ const initializeWebsocket = () => {
           data.commandId
         } - ${JSON.stringify(data.message)}`
       );
-      const result = await axiosInstance.get(data.message.endPoint);
+
+      let result;
+      if (data.message.data)
+        result = await axiosInstance.post(
+          data.message.endPoint,
+          data.message.data
+        );
+      else result = await axiosInstance.get(data.message.endPoint);
 
       socket.emit("response-device", {
         commandId: data.commandId,

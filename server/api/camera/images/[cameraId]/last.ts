@@ -1,3 +1,4 @@
+// @ts-ignore
 import { getJpg } from "../../../../camera";
 
 export default (req, res) => {

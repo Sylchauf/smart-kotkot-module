@@ -1,4 +1,4 @@
-const getConfig = require("../../lib/getConfig");
+import getConfig from "../../lib/getConfig";
 
 let motorInstance;
 

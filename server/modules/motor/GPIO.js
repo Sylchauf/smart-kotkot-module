@@ -1,6 +1,5 @@
 const MotorAbstract = require("./MotorAbstract");
-const getConfig = require("../../lib/getConfig");
-
+import getConfig from "../../lib/getConfig";
 const config = getConfig();
 
 class GPIO extends MotorAbstract {

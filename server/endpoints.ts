@@ -26,10 +26,7 @@ const setupEndpoint = (app) => {
     "/api/door/calibrate/down",
     require("./api/door/calibrate/down").default
   );
-  app.get(
-    "/api/door/calibrate/up",
-    require("./api/door/calibrate/up").default
-  );
+  app.get("/api/door/calibrate/up", require("./api/door/calibrate/up").default);
 
   // Light endpoint
   app.get("/api/light/on", require("./api/light/on").default);
@@ -37,14 +34,22 @@ const setupEndpoint = (app) => {
   app.get("/api/light/status", require("./api/light/status").default);
 
   // Temperature endpoint
-  app.get(
-    "/api/temperature/logs",
-    require("./api/temperature/logs").default
-  );
+  app.get("/api/temperature/logs", require("./api/temperature/logs").default);
   app.get(
     "/api/temperature/status",
     require("./api/temperature/status").default
   );
+
+  // Config endpoint
+  app.get("/api/config/getGeneral", require("./api/config/getGeneral").default);
+  app.post(
+    "/api/config/setGeneral",
+    require("./api/config/setGeneral").default
+  );
+  app.get("/api/config/getDoor", require("./api/config/getDoor").default);
+  app.post("/api/config/setDoor", require("./api/config/setDoor").default);
+  app.get("/api/config/getLight", require("./api/config/getLight").default);
+  app.post("/api/config/setLight", require("./api/config/setLight").default);
 };
 
 export default setupEndpoint;

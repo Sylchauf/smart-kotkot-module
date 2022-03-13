@@ -1,3 +1,4 @@
+// @ts-ignore
 import { takePhoto } from "../../../../camera";
 
 export default async (req, res) => {

@@ -1,9 +1,9 @@
 const moment = require("moment");
 const logger = require("./lib/logger");
 const { getCameraInstance } = require("./modules/camera");
-const getConfig = require("./lib/getConfig");
 const path = require("path");
 const fs = require("fs");
+import getConfig from "./lib/getConfig";
 
 const config = getConfig();
 

@@ -1,7 +1,7 @@
 const findRemoveSync = require("find-remove");
 const { CronJob } = require("cron");
-const getConfig = require("./lib/getConfig");
 const logger = require("./lib/logger");
+import getConfig from "./lib/getConfig";
 
 const config = getConfig();
 

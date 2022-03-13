@@ -2,7 +2,7 @@ let lightInstance;
 
 const GCERelay = require("./GCERelay");
 const GPIO = require("./GPIO");
-const getConfig = require("../../lib/getConfig");
+import getConfig from "../../lib/getConfig";
 
 const config = getConfig();
 
