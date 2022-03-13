@@ -28,7 +28,7 @@ const initializeWebsocket = () => {
     socket.emit("register-device", {
       moduleId: JSON.parse(fs.readFileSync("./state/module.json").toString())
         .moduleId,
-      version: JSON.parse(fs.readFileSync("./state/package.json").toString()).version,
+      version: JSON.parse(fs.readFileSync("./package.json").toString()).version,
     });
 
     socket.on("command-device", async (data) => {
