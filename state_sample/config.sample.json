@@ -1,0 +1,43 @@
+{
+  "coopId": "COOP_ID",
+  "door": {
+    "module": "GCERelay",
+    "options": {
+      "upPin": 1,
+      "downPin": 2,
+      "activateWhen": true
+    },
+    "correctionSec": 2,
+    "automation": {
+      "openTimes": ["sunrise+30"],
+      "closeTimes": ["sunset+25"]
+    }
+  },
+  "light": {
+    "module": "GCERelay",
+    "options": {
+      "pin": 5,
+      "activateWhen": true
+    },
+    "automation": {
+      "onTimes": ["sunset+15"],
+      "offTimes": ["sunset+30"]
+    }
+  },
+  "camera": [
+    {
+      "name": "Perchoir",
+      "module": "UsbWebcam",
+      "options": {
+        "device": "/dev/video0",
+        "width": 1024,
+        "height": 768
+      },
+      "intervalSec": 20
+    }
+  ],
+  "location": {
+    "lat": 45.288331,
+    "lon": 1.589881
+  }
+}

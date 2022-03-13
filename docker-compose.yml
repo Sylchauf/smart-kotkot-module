@@ -1,0 +1,22 @@
+version: "2.3"
+services:
+  smartkotkot:
+    image: "sylchauf/smart-kotkot:latest"
+    restart: always
+    security_opt:
+      - seccomp:unconfined
+    device_cgroup_rules:
+      - "c *:* rmw"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./state:/app/state
+      - /dev:/dev
+  watchtower:
+    image: containrrr/watchtower
+    restart: always
+    environment:
+      - WATCHTOWER_CLEANUP=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 300

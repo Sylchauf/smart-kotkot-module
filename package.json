@@ -1,0 +1,31 @@
+{
+  "name": "smart-kotkot",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon --ignore 'state/*.json' server/main.ts",
+    "build": "tsc --project ./",
+    "start": "NODE_ENV=production node build/server/main.js"
+  },
+  "dependencies": {
+    "axios": "^0.26.0",
+    "cron": "^1.8.2",
+    "express": "^4.17.3",
+    "find-remove": "^3.1.0",
+    "md5": "^2.3.0",
+    "node-raspistill": "2.0.1",
+    "onoff": "^6.0.3",
+    "read-last-lines": "^1.8.0",
+    "socket.io-client": "^4.4.1",
+    "suncalc": "^1.8.0",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "eslint": "7.32.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.7.0",
+    "typescript": "4.5.4"
+  }
+}
