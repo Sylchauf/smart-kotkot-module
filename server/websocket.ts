@@ -17,10 +17,15 @@ const initializeWebsocket = () => {
     logger.error(`[Websocket] Disconnected ...${reason}`);
   });
 
+  socket.on("connect_error", (err) => {
+    logger.error(`[Websocket] Connection error due to ${err.message}`);
+  });
+
   socket.on("connect", () => {
     logger.info("[Websocket] Connected to the server");
 
     socket.emit("register-device", {
+      // @TODO Check if this file exist at startup, else, throw fatal error
       moduleId: require("../state/module.json").moduleId,
       version: require("../package.json").version,
     });
