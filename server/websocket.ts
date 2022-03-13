@@ -11,7 +11,7 @@ const initializeWebsocket = () => {
 
   const config = getConfig();
 
-  const socket = io(config.server_url || "ws://app.smartkotkot.net");
+  const socket = io(config.server_url || "wss://app.smartkotkot.net");
 
   socket.on("disconnect", (reason) => {
     logger.error(`[Websocket] Disconnected ...${reason}`);
