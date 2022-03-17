@@ -12,13 +12,8 @@ function IsJsonString(str) {
 export default (req, res) => {
   const config = req.body.json;
 
-  console.log("req.body:", req.body);
-  console.log("config", config);
-
   if (IsJsonString(config)) {
     fs.writeFileSync("./state/lightState.json", config);
-
-    console.log("TEST");
 
     res.status(200).send();
   } else {
