@@ -39,17 +39,26 @@ const initializeWebsocket = () => {
       );
 
       let result;
-      if (data.message.data)
-        result = await axiosInstance.post(
-          data.message.endPoint,
-          data.message.data
-        );
-      else result = await axiosInstance.get(data.message.endPoint);
 
-      socket.emit("response-device", {
-        commandId: data.commandId,
-        message: result.data,
-      });
+      try {
+        if (data.message.data)
+          result = await axiosInstance.post(
+            data.message.endPoint,
+            data.message.data
+          );
+        else result = await axiosInstance.get(data.message.endPoint);
+
+        socket.emit("response-device", {
+          commandId: data.commandId,
+          message: result.data,
+        });
+      } catch (e) {
+        logger.error(
+          `Can not respond to the command ${JSON.stringify(
+            data.message
+          )} : ${String(e)}`
+        );
+      }
     });
   });
 
