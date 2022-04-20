@@ -20,6 +20,9 @@ const cameraTemplate = {
   },
 };
 
+// usefull to take screenshot for github
+const IS_SCREEN_PRESENTATION = false;
+
 const initializeCameras = () => {
   config.camera.forEach((oneCamera, index) => {
     setupCamera(String(index), oneCamera);
@@ -65,23 +68,16 @@ const takePhoto = async (id, manualTake = false) => {
       .then((photo) => {
         const newPicTime = moment().format("X");
 
-        let fileName;
-
         if (camera.config.save?.path) {
           fs.mkdirSync(camera.config.save.path, {
             recursive: true,
           });
-
-          fileName = path.join(camera.config.save.path, `${newPicTime}.jpg`);
 
           fs.writeFileSync(
             path.join(camera.config.save.path, `${newPicTime}.jpg`),
             photo
           );
         }
-
-        // usefull to take screenshot for github
-        const IS_SCREEN_PRESENTATION = false;
 
         camera.image = IS_SCREEN_PRESENTATION
           ? fs.readFileSync("public/chicken-example.jpg")
