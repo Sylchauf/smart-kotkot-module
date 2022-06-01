@@ -1,6 +1,6 @@
 {
   "name": "smart-kotkot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "dev": "nodemon --ignore 'state/*.json' server/main.ts",
     "build": "tsc --project ./",
