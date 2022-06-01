@@ -1,5 +1,6 @@
 const RaspberryPiWebcam = require("./RaspberryPiWebcam");
 const UsbWebcam = require("./UsbWebcam");
+const OnvifCamera = require("./OnvifCamera");
 
 const getCameraInstance = (camera) => {
   switch (camera.module) {
@@ -7,6 +8,8 @@ const getCameraInstance = (camera) => {
       return new RaspberryPiWebcam(camera);
     case "UsbWebcam":
       return new UsbWebcam(camera);
+    case "OnvifCamera":
+      return new OnvifCamera(camera);
   }
 };
 

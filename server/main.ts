@@ -11,7 +11,7 @@ const { initializeCameras } = require("./camera");
 const { getTemperatureAndHumidity } = require("./temperature");
 const initializeWebsocket = require("./websocket");
 
-const app = express();
+export const app = express();
 app.use(bodyParser.json());
 
 global.PORT = process.env.PORT || 3000;

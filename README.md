@@ -72,6 +72,7 @@ Replace `{IMAGE_ID}` by the id given in the images list endpoint
 - `GET` `/api/camera/images/{CAMERA_ID}/list` Get a list of all images taken.
 - `GET` `/api/camera/images/{CAMERA_ID}/last` Get the last picture taken by this camera
 - `GET` `/api/camera/images/{CAMERA_ID}/{IMAGE_ID}`
+- `GET` `/api/camera/capabilities/{CAMERA_ID}` Get the capabilities of this camera
 
 #### Take pictures
 

@@ -14,6 +14,14 @@ class UsbWebcam extends CameraAbstract {
     this.cameraConfig = camera;
   }
 
+  async getCapabilities() {
+    return {
+      canLiveStream: false,
+      canTakePicture: true,
+      canMove: false,
+    };
+  }
+
   async takePicture() {
     const fileName = `/tmp/shot-${md5(this.cameraConfig.options.device)}.jpg`;
 
@@ -26,7 +34,7 @@ class UsbWebcam extends CameraAbstract {
         ? `-d ${this.cameraConfig.options.device}`
         : "";
 
-      const commandLine = `fswebcam ${device} ${resolution} -S 20 --no-banner --jpeg -1 ${fileName}`;
+      const commandLine = `fswebcam ${device} ${resolution} -q -S 20 --top-banner --banner-colour "#33000000" --font "sans:20" --no-shadow --line-colour "#80000000" --timestamp "%Y-%m-%d %H:%M:%S" --text-colour "#FFFFFF" --jpeg -1 ${fileName}`;
 
       exec(commandLine, (error) => {
         if (error) reject(error);

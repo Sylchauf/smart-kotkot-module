@@ -17,6 +17,10 @@ const setupEndpoint = (app) => {
     "/api/camera/images/:cameraId/:name",
     require("./api/camera/images/[cameraId]/[name]").default
   );
+  app.get(
+    "/api/camera/move/:cameraId/:preset",
+    require("./api/camera/move/[cameraId]/[preset]").default
+  );
 
   // Door endpoint
   app.get("/api/door/down", require("./api/door/down").default);

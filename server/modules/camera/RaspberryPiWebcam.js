@@ -21,6 +21,14 @@ class RaspberryPiWebcam extends CameraAbstract {
     this.cam = new Raspistill(cameraConfig.raspistill);
   }
 
+  async getCapabilities() {
+    return {
+      canLiveStream: false,
+      canTakePicture: true,
+      canMove: false,
+    };
+  }
+
   async takePicture() {
     return this.cam.takePhoto();
   }

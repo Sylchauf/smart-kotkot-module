@@ -86,8 +86,7 @@ const takePhoto = async (id, manualTake = false) => {
         camera.busy = false;
 
         // Statistics about camera duration
-        let tookPicture = moment();
-        let duration = tookPicture.diff(takingPicture);
+        let duration = moment().diff(takingPicture);
         logger.debug(`[CAMERA] Took a picture - ${duration} ms`);
 
         // Schedule taking the next picture

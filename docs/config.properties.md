@@ -6,11 +6,11 @@
 
 camera properties
 
-| Property    | Required | Default value | Description                                               |
-| ----------- | -------- | ------------- | --------------------------------------------------------- |
-| name        | Yes      |               | The name of the camera                                    |
-| module      | Yes      |               | One the this modules : `UsbWebcam` or `RaspberryPiWebcam` |
-| options     | Yes      |               | Options                                                   |
-| intervalSec | Yes      |               | interval in seconds between screenshot                    |
+| Property    | Required | Default value | Description                                                                |
+| ----------- | -------- | ------------- |----------------------------------------------------------------------------|
+| name        | Yes      |               | The name of the camera                                                     |
+| module      | Yes      |               | One the this modules : `UsbWebcam` or `RaspberryPiWebcam` on `OnvifCamera` |
+| options     | Yes      |               | Options                                                                    |
+| intervalSec | Yes      |               | interval in seconds between screenshot                                     |
 
 @TODO

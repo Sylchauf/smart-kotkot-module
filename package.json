@@ -15,6 +15,7 @@
     "md5": "^2.3.0",
     "node-raspistill": "2.0.1",
     "onoff": "^6.0.3",
+    "onvif": "^0.6.5",
     "read-last-lines": "^1.8.0",
     "socket.io-client": "^4.4.1",
     "suncalc": "^1.8.0",
